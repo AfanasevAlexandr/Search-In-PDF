@@ -5,9 +5,9 @@ import matplotlib.pyplot as plt
 import os
 import json
 
-
-#pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# путь до папки с poppler.exe
 poppler_path = r'poppler\bin'
+# путь до tesseract.exe
 pytesseract.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe'
 custom_config = r'--oem 3 --psm 6'
 
@@ -134,10 +134,12 @@ def search_text():
 
 
 def main():
+    # создаем папки для кэша и результатов поиска
     if not os.path.isdir('result'):
         os.mkdir('result')
     if not os.path.isdir('cache'):
         os.mkdir('cache')
+        
     search_text()
 
 
